@@ -168,12 +168,51 @@
                   </div>
                   <div class="main">
                     <h2>Fleet List</h2>
-                  </div>
-                  </select>
-                  </select>
-                </select>
-             </select>
-             </select>
+                    <div id="cardscontainer" class="cards-wrapper">
+
+                    </div>
         </div>
     </div>
+</script>
+<script>
+let fleets=[];
+const regInput=document.getElementById("regInput");
+const CategoryInput=documnet.getElementById("CategoryInput");
+const DriverInput=documnet.getElementById("DriverInput");
+const availableInput=documnet.getElementById("AailableInput");
+const addBtn=documnet.getElementById("addBtn");
+const formError=documnet.getElementById("formError");
+const cardscontainer=documnet.getElementById("cardscontainer");
+const CategoryFilter=documnet.getElementById("CategoryFilter");
+const availabilityFilter=documnet.getElementById("availabilityFilter");
+const clearFilterBtn=documnet.getElementById("clearFilterBtn");
+const VEHICLE_IMG_URL="PASTE_SAMPLE_IMAGE_URL_HERE";
+addBtn.addEventListener("click",function(){
+    formError.textcontent="";
+    const regNo=regInput.value.trim();
+    const category=CategoryInput.value;
+    const driver=driverInput.value;
+    const availability=availableInput.value;
+    if(!regNo|| !category||!driver || !availability){
+        formError.textcontent="All fields are required.";
+        return;
+    }
+    const newFleet={
+        id:Date.now(),
+        regNo,
+        category,driver,
+        availability
+    };
+    fleets.push(newFleet);
+    regInput.value="";
+    CategoryInput.value="";
+    driverInput.value="";
+    availableInput.value="";
+    renderCards();
+});
+function renderCards(){
+    cardsContainer.innerHTML="";
+    const catFiltervalue=categoryFilter.value;
+}
+</script>
 </body>
