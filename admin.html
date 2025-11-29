@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="UTF-8">
+    <title>Admin Dashboard-Fleet App</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        body{
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+        .navbar{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 20px;
+            background-color: #343a40;
+            color: #fff;
+        }
+        .navbar select, .navbar button
+        {
+          padding: 6px;
+          margin-left: 5px;        
+        }
+        .navbar span{
+            font-weight: bold;
+            margin-right: 8px;
+        }
+        .container{
+            display: flex;
+            height: calc(100vh-50px);
+        }
+        .sidebar{
+            width: 280px;
+            background-color: #ffffff;
+            padding: 20px;
+            border-right: 1px solid #ddd;            
+        }
+        .sidebar h2{
+            margin-top: 0;
+            margin-bottom: 10px;
+
+        }
+        .sidebar input, .sidebar select, .sidebar button{
+            width: 100%;
+            padding: 8px;
+            margin: 6px 0;
+
+        }
+        .sidebar button{
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        .sidebar button:hover{
+            background-color: #1e7e34;
+        }
+        .error{
+            color: red;
+            font-size: 12px;
+            margin-top: 4px;
+        }
+        .main{
+            flex:1;
+            padding: 20px;
+            overflow-y: auto;
+
+        }
+        .cards-wrapper{
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px,1fr));
+            gap: 15px;
+        }
+        .card{
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 6px;
+            box-shadow: 0 0 6px rgba(0,0,0,0.15);
+        }
+        .card img{
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-bottom: 8px;
+        }
+        .card h3{
+            margin: 6px 0;
+            font-size: 14px;
+        }
+        .status-available{
+            color: green;
+            font-weight: bold;
+        }
+        .status-available{
+            color: red;
+            font-weight: bold;
+
+        }
+        .card button{
+            margin-top: 6px;
+            margin-right: 4px;
+            padding: 5px 8px;
+            font-size: 12px;
+            cursor: pointer;
+        }
+        .btn-update{
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+        }
+        .btn-availability{
+            background-color: #ffc107;
+            border: none;
+        }
+        .btn-delete{
+            background-color: #dc3545;
+            color: #fff;
+            border: none;
+        }
+    </style>
+</html>
+<body>
+    <div class="navbar">
+        <span>Category:</span>
+        <select id ="CategoryFilter">
+            <option value="All">All</option>
+            <option value="Auto">Auto</option>
+            <option value="Car">Car</option>
+            <option value="Truck">Truck</option>
+            <option value="Bus">Bus</option>
+        </select>
+        <span>Availability:</span>
+        <select id="availabilityFilter">
+            <option value="All">All</option>
+            <option value="Available">Available</option>
+            <option value="Unavailable">Unavailable</option>
+        </select>
+        <button id="clearFilterBtn">Clear Filter</button>
+    </div>
+    <div class="container">
+        <div class="sidebar">
+            <h2>Add Fleet</h2>
+            <label>Reg No of Vehicle</label>
+            <input id="regInput" type="text" placeholder="KA01AB1234">
+            <label>Category</label>
+             <select id="CategoryInput">
+                <option value="">Select Category</option>
+            <option value="Auto">Auto</option>
+            <option value="Car">Car</option>
+            <option value="Truck">Truck</option>
+            <option value="Bus">Bus</option>
+             </select>
+             <label>Driver Name</label>
+             <select id="availableInput" type="text" placeholder="DriverName">
+                <label>Is Available</label>
+                  <select id="availableInput">
+                    <option value="Select Availability" type="option">Select Availability</option>
+                     <option value="Available">Available</option>
+                     <option value="UnAvailable">UnAvailable</option>
+
+                  </select>
+                  <button id="addBtn">AddFleet</button>
+                  <div id="formError" class="error"></div>
+                  </div>
+                  <div class="main">
+                    <h2>Fleet List</h2>
+                  </div>
+                  </select>
+                  </select>
+                </select>
+             </select>
+             </select>
+        </div>
+    </div>
+</body>
