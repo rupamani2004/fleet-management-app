@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Basic DOM Manipulation</title>
+  </head>
+  <body>
+    <ul id="item-list">
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+    </ul>
+
+    <button id="add-btn">Add Item</button>
+
+    <script>
+      const list = document.querySelector("#item-list");
+      const button = document.querySelector("#add-btn");
+
+      button.addEventListener("click", function () {
+        const newLi = document.createElement("li");
+        newLi.textContent = "New Item";
+
+        // add to list first
+        list.appendChild(newLi);
+
+        // find its position (1-based index)
+        const allItems = list.querySelectorAll("li");
+        const index = allItems.length; // new item is last
+
+        if (index % 2 === 1) {
+          // odd position: bold & blue
+          newLi.style.fontWeight = "bold";
+          newLi.style.color = "blue";
+        } else {
+          // even position: italic & red
+          newLi.style.fontStyle = "italic";
+          newLi.style.color = "red";
+        }
+      });
+    </script>
+  </body>
+</html>
